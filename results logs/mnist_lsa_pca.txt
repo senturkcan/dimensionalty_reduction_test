@@ -1,0 +1,137 @@
+C:\Users\canse\PycharmProjects\dr_algorithms\.venv\Scripts\python.exe C:\Users\canse\PycharmProjects\dr_algorithms\mnist_lsa_pca.py 
+2025-06-01 22:35:48.480154: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-06-01 22:35:51.406866: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Loading Fashion-MNIST dataset...
+Training data shape: (60000, 28, 28)
+Test data shape: (10000, 28, 28)
+Flattened training data shape: (60000, 784)
+Standardizing data for PCA...
+
+============================================================
+APPLYING LATENT SEMANTIC ANALYSIS (LSA)
+============================================================
+Applying LSA using Truncated SVD...
+LSA transformation time: 10.42s
+Original dimensions: 784
+LSA reduced dimensions: 200
+LSA explained variance ratio: 0.9534
+
+============================================================
+APPLYING PRINCIPAL COMPONENT ANALYSIS (PCA)
+============================================================
+Applying PCA...
+PCA transformation time: 1.03s
+PCA reduced dimensions: 200
+PCA explained variance ratio: 0.9320
+
+============================================================
+COMPARING LSA vs PCA
+============================================================
+
+============================================================
+k-NN CLASSIFICATION WITH LSA
+============================================================
+Testing LSA + k-NN with k=3...
+LSA k=3: Accuracy = 0.8588, Time = 2.89s
+Testing LSA + k-NN with k=5...
+LSA k=5: Accuracy = 0.8609, Time = 2.33s
+Testing LSA + k-NN with k=7...
+LSA k=7: Accuracy = 0.8612, Time = 2.61s
+Testing LSA + k-NN with k=10...
+LSA k=10: Accuracy = 0.8602, Time = 2.27s
+Testing LSA + k-NN with k=15...
+LSA k=15: Accuracy = 0.8546, Time = 2.40s
+
+============================================================
+k-NN CLASSIFICATION WITH PCA
+============================================================
+Testing PCA + k-NN with k=3...
+PCA k=3: Accuracy = 0.8562, Time = 2.29s
+Testing PCA + k-NN with k=5...
+PCA k=5: Accuracy = 0.8598, Time = 2.43s
+Testing PCA + k-NN with k=7...
+PCA k=7: Accuracy = 0.8612, Time = 2.32s
+Testing PCA + k-NN with k=10...
+PCA k=10: Accuracy = 0.8605, Time = 2.38s
+Testing PCA + k-NN with k=15...
+PCA k=15: Accuracy = 0.8551, Time = 2.40s
+
+============================================================
+RESULTS COMPARISON: LSA vs PCA
+============================================================
+Best LSA: k=7, Accuracy=0.8612
+Best PCA: k=7, Accuracy=0.8612
+
+LSA Classification Report (k=7):
+              precision    recall  f1-score   support
+
+ T-shirt/top       0.79      0.85      0.82      1000
+     Trouser       0.99      0.96      0.98      1000
+    Pullover       0.74      0.80      0.77      1000
+       Dress       0.90      0.87      0.89      1000
+        Coat       0.77      0.78      0.78      1000
+      Sandal       0.99      0.86      0.92      1000
+       Shirt       0.66      0.59      0.63      1000
+     Sneaker       0.89      0.97      0.93      1000
+         Bag       0.97      0.96      0.96      1000
+  Ankle boot       0.92      0.97      0.94      1000
+
+    accuracy                           0.86     10000
+   macro avg       0.86      0.86      0.86     10000
+weighted avg       0.86      0.86      0.86     10000
+
+
+PCA Classification Report (k=7):
+              precision    recall  f1-score   support
+
+ T-shirt/top       0.79      0.85      0.82      1000
+     Trouser       0.99      0.96      0.98      1000
+    Pullover       0.77      0.78      0.77      1000
+       Dress       0.90      0.88      0.89      1000
+        Coat       0.76      0.80      0.78      1000
+      Sandal       0.99      0.87      0.93      1000
+       Shirt       0.65      0.61      0.63      1000
+     Sneaker       0.89      0.96      0.92      1000
+         Bag       0.98      0.94      0.96      1000
+  Ankle boot       0.92      0.96      0.94      1000
+
+    accuracy                           0.86     10000
+   macro avg       0.86      0.86      0.86     10000
+weighted avg       0.86      0.86      0.86     10000
+
+
+============================================================
+COMPONENT ANALYSIS
+============================================================
+
+============================================================
+FINAL ANALYSIS SUMMARY
+============================================================
+
+DIMENSIONALITY REDUCTION COMPARISON:
+┌─────────────────────────────────────────────────────────────┐
+│                    LSA              PCA                     │
+├─────────────────────────────────────────────────────────────┤
+│ Method:            Truncated SVD    Principal Components    │
+│ Preprocessing:     None required    Standardization needed  │
+│ Transform Time:    10.42s            1.03s              │
+│ Explained Var:     0.9534           0.9320             │
+│ Best k:            7               7                 │
+│ Best Accuracy:     0.8612           0.8612             │
+│ Prediction Time:   2.61s            2.32s              │
+└─────────────────────────────────────────────────────────────┘
+
+KEY DIFFERENCES:
+• LSA (Truncated SVD): Works directly on data matrix without centering
+• PCA: Requires mean-centered (standardized) data
+• LSA: Better for sparse data and text analysis originally
+• PCA: Better for dense data and removes correlations more effectively
+
+PERFORMANCE INSIGHTS:
+• Both methods achieve similar dimensionality reduction effectiveness
+• PCA typically performs slightly better on image data due to standardization
+• LSA is faster in transformation but similar in k-NN performance
+• Choice depends on data characteristics and preprocessing preferences
+
+
+Process finished with exit code 0

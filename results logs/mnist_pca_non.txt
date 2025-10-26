@@ -1,0 +1,70 @@
+C:\Users\canse\PycharmProjects\dr_algorithms\.venv\Scripts\python.exe C:\Users\canse\PycharmProjects\dr_algorithms\mnist_pca_nonv2.py 
+2025-06-01 22:30:30.459911: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-06-01 22:30:31.998321: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Loading Fashion-MNIST dataset...
+Training data shape: (60000, 28, 28)
+Test data shape: (10000, 28, 28)
+Flattened training data shape: (60000, 784)
+Standardizing data...
+Applying PCA...
+Original dimensions: 784
+Reduced dimensions: 200
+Explained variance ratio: 0.9320
+
+Training k-NN classifier...
+Testing k=3...
+k=3: Accuracy = 0.8562, Time = 2.88s
+Testing k=5...
+k=5: Accuracy = 0.8598, Time = 2.24s
+Testing k=7...
+k=7: Accuracy = 0.8612, Time = 2.25s
+Testing k=10...
+k=10: Accuracy = 0.8605, Time = 2.44s
+Testing k=15...
+k=15: Accuracy = 0.8551, Time = 2.55s
+
+Best k value: 7 with accuracy: 0.8612
+
+Detailed evaluation for k=7:
+
+Classification Report:
+              precision    recall  f1-score   support
+
+ T-shirt/top       0.79      0.85      0.82      1000
+     Trouser       0.99      0.96      0.98      1000
+    Pullover       0.77      0.78      0.77      1000
+       Dress       0.90      0.88      0.89      1000
+        Coat       0.76      0.80      0.78      1000
+      Sandal       0.99      0.87      0.93      1000
+       Shirt       0.65      0.61      0.63      1000
+     Sneaker       0.89      0.96      0.92      1000
+         Bag       0.98      0.94      0.96      1000
+  Ankle boot       0.92      0.96      0.94      1000
+
+    accuracy                           0.86     10000
+   macro avg       0.86      0.86      0.86     10000
+weighted avg       0.86      0.86      0.86     10000
+
+
+Comparison: PCA vs No PCA
+Training k-NN without PCA (using full dataset)...
+
+Results comparison:
+With PCA (200 components):
+  - Accuracy: 0.8612
+  - Time: 2.25s
+  - Features: 200
+
+Without PCA (full dataset):
+  - Accuracy: 0.8524
+  - Time: 8.20s
+  - Features: 784
+
+Analysis Summary:
+- PCA reduced dimensionality from 784 to 200
+- Retained 93.2% of variance
+- Best k value: 7
+- Final accuracy: 0.8612
+- Comparison shows trade-offs between accuracy, speed, and dimensionality
+
+Process finished with exit code 0

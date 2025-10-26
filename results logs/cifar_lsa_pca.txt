@@ -1,0 +1,181 @@
+C:\Users\canse\PycharmProjects\dr_algorithms\.venv\Scripts\python.exe C:\Users\canse\PycharmProjects\dr_algorithms\cifar_lsa_pca.py 
+2025-06-01 02:02:33.446618: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-06-01 02:02:35.032018: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Loading CIFAR-10 dataset...
+Training data shape: (50000, 32, 32, 3)
+Test data shape: (10000, 32, 32, 3)
+Flattened training data shape: (50000, 3072)
+Flattened test data shape: (10000, 3072)
+Using training subset of size: 50000
+Using test subset of size: 10000
+Standardizing data for PCA...
+
+============================================================
+APPLYING LATENT SEMANTIC ANALYSIS (LSA)
+============================================================
+Applying LSA using Truncated SVD...
+LSA transformation time: 17.60s
+Original dimensions: 3072
+LSA reduced dimensions: 200
+LSA explained variance ratio: 0.9457
+
+============================================================
+APPLYING PRINCIPAL COMPONENT ANALYSIS (PCA)
+============================================================
+Applying PCA...
+PCA transformation time: 20.61s
+PCA reduced dimensions: 200
+PCA explained variance ratio: 0.9446
+
+============================================================
+COMPARING LSA vs PCA
+============================================================
+
+============================================================
+k-NN CLASSIFICATION WITH ORIGINAL DATA
+============================================================
+Testing Original + k-NN with k=3...
+Original k=3: Accuracy = 0.3308, Time = 27.21s
+Testing Original + k-NN with k=5...
+Original k=5: Accuracy = 0.3417, Time = 28.60s
+Testing Original + k-NN with k=7...
+Original k=7: Accuracy = 0.3388, Time = 27.09s
+Testing Original + k-NN with k=10...
+Original k=10: Accuracy = 0.3416, Time = 25.63s
+
+============================================================
+k-NN CLASSIFICATION WITH LSA
+============================================================
+Testing LSA + k-NN with k=3...
+LSA k=3: Accuracy = 0.3536, Time = 2.01s
+Testing LSA + k-NN with k=5...
+LSA k=5: Accuracy = 0.3633, Time = 1.83s
+Testing LSA + k-NN with k=7...
+LSA k=7: Accuracy = 0.3636, Time = 2.11s
+Testing LSA + k-NN with k=10...
+LSA k=10: Accuracy = 0.3665, Time = 1.95s
+
+============================================================
+k-NN CLASSIFICATION WITH PCA
+============================================================
+Testing PCA + k-NN with k=3...
+PCA k=3: Accuracy = 0.3536, Time = 1.96s
+Testing PCA + k-NN with k=5...
+PCA k=5: Accuracy = 0.3656, Time = 1.94s
+Testing PCA + k-NN with k=7...
+PCA k=7: Accuracy = 0.3669, Time = 1.95s
+Testing PCA + k-NN with k=10...
+PCA k=10: Accuracy = 0.3668, Time = 1.88s
+
+============================================================
+RESULTS COMPARISON: ORIGINAL vs LSA vs PCA
+============================================================
+Best Original: k=5, Accuracy=0.3417
+Best LSA: k=10, Accuracy=0.3665
+Best PCA: k=7, Accuracy=0.3669
+
+Original Classification Report (k=5):
+              precision    recall  f1-score   support
+
+    airplane       0.38      0.54      0.45      1000
+  automobile       0.67      0.21      0.32      1000
+        bird       0.22      0.44      0.29      1000
+         cat       0.30      0.23      0.26      1000
+        deer       0.25      0.52      0.33      1000
+         dog       0.39      0.22      0.28      1000
+        frog       0.36      0.26      0.30      1000
+       horse       0.69      0.22      0.33      1000
+        ship       0.40      0.66      0.50      1000
+       truck       0.73      0.13      0.23      1000
+
+    accuracy                           0.34     10000
+   macro avg       0.44      0.34      0.33     10000
+weighted avg       0.44      0.34      0.33     10000
+
+
+LSA Classification Report (k=10):
+              precision    recall  f1-score   support
+
+    airplane       0.43      0.55      0.48      1000
+  automobile       0.70      0.23      0.34      1000
+        bird       0.24      0.45      0.31      1000
+         cat       0.31      0.18      0.23      1000
+        deer       0.25      0.53      0.34      1000
+         dog       0.47      0.22      0.30      1000
+        frog       0.34      0.38      0.36      1000
+       horse       0.69      0.24      0.36      1000
+        ship       0.42      0.69      0.52      1000
+       truck       0.77      0.20      0.32      1000
+
+    accuracy                           0.37     10000
+   macro avg       0.46      0.37      0.36     10000
+weighted avg       0.46      0.37      0.36     10000
+
+
+PCA Classification Report (k=7):
+              precision    recall  f1-score   support
+
+    airplane       0.43      0.55      0.49      1000
+  automobile       0.72      0.26      0.38      1000
+        bird       0.24      0.46      0.32      1000
+         cat       0.29      0.20      0.24      1000
+        deer       0.25      0.52      0.34      1000
+         dog       0.47      0.22      0.30      1000
+        frog       0.35      0.38      0.37      1000
+       horse       0.66      0.23      0.34      1000
+        ship       0.43      0.66      0.52      1000
+       truck       0.75      0.18      0.29      1000
+
+    accuracy                           0.37     10000
+   macro avg       0.46      0.37      0.36     10000
+weighted avg       0.46      0.37      0.36     10000
+
+
+============================================================
+COMPONENT ANALYSIS
+============================================================
+
+============================================================
+FINAL ANALYSIS SUMMARY
+============================================================
+
+CIFAR-10 CLASSIFICATION COMPARISON:
+┌──────────────────────────────────────────────────────────────────────┐
+│                    Original         LSA              PCA             │
+├──────────────────────────────────────────────────────────────────────┤
+│ Dimensions:        3072           200              200              │
+│ Method:            None            Truncated SVD    Principal Comp   │
+│ Preprocessing:     Standardized    None required    Standardization  │
+│ Transform Time:    N/A             17.60s            20.61s              │
+│ Explained Var:     N/A             0.9457           0.9446             │
+│ Best k:            5              10               7                 │
+│ Best Accuracy:     0.3417           0.3665           0.3669             │
+│ Prediction Time:   28.60s            1.95s            1.95s              │
+│ Reduction Ratio:   1.0x            15.4x            15.4x             │
+└──────────────────────────────────────────────────────────────────────┘
+
+KEY INSIGHTS FOR CIFAR-10:
+• Original data performs best but is computationally expensive
+• PCA provides good balance between accuracy and efficiency
+• LSA is fastest for transformation but may lose some accuracy
+• Dimensionality reduction speeds up k-NN significantly
+• CIFAR-10's color information benefits from PCA's correlation removal
+
+PERFORMANCE TRADE-OFFS:
+• Accuracy: Original > PCA ≈ LSA
+• Speed: LSA > PCA >> Original
+• Memory: LSA ≈ PCA << Original
+• Interpretability: PCA > LSA > Original
+
+RECOMMENDATIONS:
+• Use Original for maximum accuracy with sufficient computational resources
+• Use PCA for best balance of accuracy and efficiency
+• Use LSA for fastest processing when slight accuracy loss is acceptable
+
+
+COMPRESSION ANALYSIS:
+• LSA: 93.5% size reduction, 14.7x speedup
+• PCA: 93.5% size reduction, 14.7x speedup
+
+
+Process finished with exit code 0

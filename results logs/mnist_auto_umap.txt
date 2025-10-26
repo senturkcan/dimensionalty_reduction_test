@@ -1,0 +1,331 @@
+C:\Users\canse\PycharmProjects\dr_algorithms\.venv\Scripts\python.exe C:\Users\canse\PycharmProjects\dr_algorithms\mnist_auto_umap.py 
+2025-06-01 22:38:01.816048: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-06-01 22:38:03.296232: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Loading Fashion-MNIST dataset...
+Training data shape: (60000, 28, 28)
+Test data shape: (10000, 28, 28)
+Flattened training data shape: (60000, 784)
+Standardizing data...
+
+============================================================
+AUTOENCODER DIMENSIONALITY REDUCTION
+============================================================
+Creating and training autoencoder...
+2025-06-01 22:38:14.558405: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+
+Autoencoder Architecture:
+Model: "functional"
+┌─────────────────────────────────┬────────────────────────┬───────────────┐
+│ Layer (type)                    │ Output Shape           │       Param # │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ input_layer (InputLayer)        │ (None, 784)            │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense (Dense)                   │ (None, 512)            │       401,920 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dropout (Dropout)               │ (None, 512)            │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense_1 (Dense)                 │ (None, 256)            │       131,328 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dropout_1 (Dropout)             │ (None, 256)            │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense_2 (Dense)                 │ (None, 128)            │        32,896 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ encoded (Dense)                 │ (None, 200)            │        25,800 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense_3 (Dense)                 │ (None, 128)            │        25,728 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense_4 (Dense)                 │ (None, 256)            │        33,024 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dropout_2 (Dropout)             │ (None, 256)            │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense_5 (Dense)                 │ (None, 512)            │       131,584 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dropout_3 (Dropout)             │ (None, 512)            │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense_6 (Dense)                 │ (None, 784)            │       402,192 │
+└─────────────────────────────────┴────────────────────────┴───────────────┘
+ Total params: 1,184,472 (4.52 MB)
+ Trainable params: 1,184,472 (4.52 MB)
+ Non-trainable params: 0 (0.00 B)
+
+Training autoencoder...
+Epoch 1/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 8s 26ms/step - loss: 0.8740 - mae: 0.7002 - val_loss: 0.6811 - val_mae: 0.5897
+Epoch 2/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 9s 21ms/step - loss: 0.6863 - mae: 0.5943 - val_loss: 0.6551 - val_mae: 0.5754
+Epoch 3/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 20ms/step - loss: 0.6663 - mae: 0.5827 - val_loss: 0.6442 - val_mae: 0.5683
+Epoch 4/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 20ms/step - loss: 0.6568 - mae: 0.5770 - val_loss: 0.6376 - val_mae: 0.5641
+Epoch 5/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 5s 24ms/step - loss: 0.6513 - mae: 0.5735 - val_loss: 0.6342 - val_mae: 0.5620
+Epoch 6/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 5s 23ms/step - loss: 0.6470 - mae: 0.5707 - val_loss: 0.6300 - val_mae: 0.5588
+Epoch 7/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 20ms/step - loss: 0.6443 - mae: 0.5690 - val_loss: 0.6280 - val_mae: 0.5576
+Epoch 8/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 21ms/step - loss: 0.6419 - mae: 0.5675 - val_loss: 0.6260 - val_mae: 0.5564
+Epoch 9/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 21ms/step - loss: 0.6398 - mae: 0.5662 - val_loss: 0.6249 - val_mae: 0.5555
+Epoch 10/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 19ms/step - loss: 0.6385 - mae: 0.5653 - val_loss: 0.6240 - val_mae: 0.5550
+Epoch 11/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 21ms/step - loss: 0.6371 - mae: 0.5644 - val_loss: 0.6226 - val_mae: 0.5539
+Epoch 12/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 20ms/step - loss: 0.6360 - mae: 0.5636 - val_loss: 0.6216 - val_mae: 0.5532
+Epoch 13/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 20ms/step - loss: 0.6350 - mae: 0.5630 - val_loss: 0.6206 - val_mae: 0.5526
+Epoch 14/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 20ms/step - loss: 0.6343 - mae: 0.5624 - val_loss: 0.6203 - val_mae: 0.5524
+Epoch 15/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 20ms/step - loss: 0.6337 - mae: 0.5621 - val_loss: 0.6193 - val_mae: 0.5517
+Epoch 16/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 5s 21ms/step - loss: 0.6330 - mae: 0.5615 - val_loss: 0.6189 - val_mae: 0.5513
+Epoch 17/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 20ms/step - loss: 0.6324 - mae: 0.5612 - val_loss: 0.6187 - val_mae: 0.5511
+Epoch 18/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 20ms/step - loss: 0.6319 - mae: 0.5608 - val_loss: 0.6180 - val_mae: 0.5507
+Epoch 19/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 20ms/step - loss: 0.6313 - mae: 0.5605 - val_loss: 0.6175 - val_mae: 0.5501
+Epoch 20/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 20ms/step - loss: 0.6305 - mae: 0.5600 - val_loss: 0.6171 - val_mae: 0.5500
+Epoch 21/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 20ms/step - loss: 0.6302 - mae: 0.5597 - val_loss: 0.6163 - val_mae: 0.5494
+Epoch 22/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 20ms/step - loss: 0.6299 - mae: 0.5594 - val_loss: 0.6166 - val_mae: 0.5498
+Epoch 23/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 21ms/step - loss: 0.6295 - mae: 0.5592 - val_loss: 0.6158 - val_mae: 0.5489
+Epoch 24/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 5s 21ms/step - loss: 0.6289 - mae: 0.5588 - val_loss: 0.6160 - val_mae: 0.5490
+Epoch 25/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 21ms/step - loss: 0.6288 - mae: 0.5586 - val_loss: 0.6158 - val_mae: 0.5486
+Epoch 26/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 20ms/step - loss: 0.6284 - mae: 0.5584 - val_loss: 0.6152 - val_mae: 0.5486
+Epoch 27/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 20ms/step - loss: 0.6280 - mae: 0.5582 - val_loss: 0.6149 - val_mae: 0.5483
+Epoch 28/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 20ms/step - loss: 0.6277 - mae: 0.5579 - val_loss: 0.6145 - val_mae: 0.5482
+Epoch 29/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 21ms/step - loss: 0.6273 - mae: 0.5577 - val_loss: 0.6147 - val_mae: 0.5477
+Epoch 30/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 5s 20ms/step - loss: 0.6275 - mae: 0.5577 - val_loss: 0.6141 - val_mae: 0.5480
+Epoch 31/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 21ms/step - loss: 0.6269 - mae: 0.5573 - val_loss: 0.6138 - val_mae: 0.5474
+Epoch 32/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 20ms/step - loss: 0.6267 - mae: 0.5572 - val_loss: 0.6136 - val_mae: 0.5470
+Epoch 33/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 20ms/step - loss: 0.6265 - mae: 0.5570 - val_loss: 0.6139 - val_mae: 0.5473
+Epoch 34/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 20ms/step - loss: 0.6265 - mae: 0.5570 - val_loss: 0.6145 - val_mae: 0.5478
+Epoch 35/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 20ms/step - loss: 0.6264 - mae: 0.5569 - val_loss: 0.6130 - val_mae: 0.5464
+Epoch 36/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 21ms/step - loss: 0.6258 - mae: 0.5565 - val_loss: 0.6130 - val_mae: 0.5466
+Epoch 37/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 21ms/step - loss: 0.6258 - mae: 0.5565 - val_loss: 0.6137 - val_mae: 0.5475
+Epoch 38/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 5s 22ms/step - loss: 0.6258 - mae: 0.5565 - val_loss: 0.6128 - val_mae: 0.5464
+Epoch 39/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 5s 23ms/step - loss: 0.6254 - mae: 0.5562 - val_loss: 0.6129 - val_mae: 0.5465
+Epoch 40/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 5s 22ms/step - loss: 0.6252 - mae: 0.5561 - val_loss: 0.6122 - val_mae: 0.5461
+Epoch 41/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 19ms/step - loss: 0.6249 - mae: 0.5559 - val_loss: 0.6126 - val_mae: 0.5463
+Epoch 42/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 20ms/step - loss: 0.6251 - mae: 0.5559 - val_loss: 0.6127 - val_mae: 0.5465
+Epoch 43/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 19ms/step - loss: 0.6249 - mae: 0.5558 - val_loss: 0.6120 - val_mae: 0.5458
+Epoch 44/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 20ms/step - loss: 0.6246 - mae: 0.5556 - val_loss: 0.6123 - val_mae: 0.5460
+Epoch 45/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 20ms/step - loss: 0.6245 - mae: 0.5555 - val_loss: 0.6118 - val_mae: 0.5456
+Epoch 46/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 21ms/step - loss: 0.6242 - mae: 0.5553 - val_loss: 0.6119 - val_mae: 0.5458
+Epoch 47/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 5s 23ms/step - loss: 0.6238 - mae: 0.5551 - val_loss: 0.6117 - val_mae: 0.5456
+Epoch 48/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 5s 22ms/step - loss: 0.6237 - mae: 0.5550 - val_loss: 0.6118 - val_mae: 0.5457
+Epoch 49/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 4s 20ms/step - loss: 0.6237 - mae: 0.5550 - val_loss: 0.6115 - val_mae: 0.5455
+Epoch 50/50
+211/211 ━━━━━━━━━━━━━━━━━━━━ 6s 27ms/step - loss: 0.6236 - mae: 0.5549 - val_loss: 0.6114 - val_mae: 0.5456
+
+Autoencoder training and encoding time: 238.87s
+Original dimensions: 784
+Autoencoder reduced dimensions: 200
+Mean reconstruction error: 0.606906
+
+============================================================
+UMAP DIMENSIONALITY REDUCTION
+============================================================
+Applying UMAP...
+UMAP(n_components=200, n_jobs=1, random_state=42, verbose=True)
+Sun Jun  1 22:42:18 2025 Construct fuzzy simplicial set
+Sun Jun  1 22:42:18 2025 Finding Nearest Neighbors
+Sun Jun  1 22:42:18 2025 Building RP forest with 17 trees
+Sun Jun  1 22:42:30 2025 NN descent for 16 iterations
+	 1  /  16
+	 2  /  16
+	 3  /  16
+	 4  /  16
+	Stopping threshold met -- exiting after 4 iterations
+Sun Jun  1 22:42:52 2025 Finished Nearest Neighbor Search
+Sun Jun  1 22:42:55 2025 Construct embedding
+Epochs completed:   0%|            1/200 [00:00]	completed  0  /  200 epochs
+Epochs completed:  10%| █          21/200 [00:17]	completed  20  /  200 epochs
+Epochs completed:  20%| ██         41/200 [00:35]	completed  40  /  200 epochs
+Epochs completed:  30%| ███        61/200 [00:53]	completed  60  /  200 epochs
+Epochs completed:  40%| ████       81/200 [01:12]	completed  80  /  200 epochs
+Epochs completed:  50%| █████      101/200 [01:30]	completed  100  /  200 epochs
+Epochs completed:  60%| ██████     121/200 [01:48]	completed  120  /  200 epochs
+Epochs completed:  70%| ███████    141/200 [02:07]	completed  140  /  200 epochs
+Epochs completed:  80%| ████████   161/200 [02:25]	completed  160  /  200 epochs
+Epochs completed:  90%| █████████  181/200 [02:43]	completed  180  /  200 epochs
+Epochs completed: 100%| ██████████ 200/200 [03:00]
+Sun Jun  1 22:47:58 2025 Finished embedding
+Sun Jun  1 22:48:00 2025 Worst tree score: 0.62778333
+Sun Jun  1 22:48:00 2025 Mean tree score: 0.63758137
+Sun Jun  1 22:48:00 2025 Best tree score: 0.64455000
+Sun Jun  1 22:48:03 2025 Forward diversification reduced edges from 900000 to 301864
+Sun Jun  1 22:48:07 2025 Reverse diversification reduced edges from 301864 to 301864
+Sun Jun  1 22:48:09 2025 Degree pruning reduced edges from 332464 to 332131
+Sun Jun  1 22:48:09 2025 Resorting data and graph based on tree order
+Sun Jun  1 22:48:10 2025 Building and compiling search function
+	completed  0  /  100 epochs
+Epochs completed:  10%| █          10/100 [00:00]	completed  10  /  100 epochs
+Epochs completed:  20%| ██         20/100 [00:01]	completed  20  /  100 epochs
+Epochs completed:  30%| ███        30/100 [00:02]	completed  30  /  100 epochs
+Epochs completed:  41%| ████       41/100 [00:03]	completed  40  /  100 epochs
+Epochs completed:  51%| █████      51/100 [00:04]	completed  50  /  100 epochs
+Epochs completed:  60%| ██████     60/100 [00:05]	completed  60  /  100 epochs
+Epochs completed:  71%| ███████    71/100 [00:07]	completed  70  /  100 epochs
+Epochs completed:  81%| ████████   81/100 [00:08]	completed  80  /  100 epochs
+Epochs completed:  91%| █████████  91/100 [00:10]	completed  90  /  100 epochs
+Epochs completed: 100%| ██████████ 100/100 [00:11]
+
+UMAP transformation time: 369.51s
+UMAP reduced dimensions: 200
+
+============================================================
+k-NN CLASSIFICATION WITH AUTOENCODER
+============================================================
+Testing Autoencoder + k-NN with k=3...
+Autoencoder k=3: Accuracy = 0.8422, Time = 2.63s
+Testing Autoencoder + k-NN with k=5...
+Autoencoder k=5: Accuracy = 0.8509, Time = 2.39s
+Testing Autoencoder + k-NN with k=7...
+Autoencoder k=7: Accuracy = 0.8519, Time = 2.36s
+Testing Autoencoder + k-NN with k=10...
+Autoencoder k=10: Accuracy = 0.8559, Time = 2.37s
+Testing Autoencoder + k-NN with k=15...
+Autoencoder k=15: Accuracy = 0.8544, Time = 2.38s
+
+============================================================
+k-NN CLASSIFICATION WITH UMAP
+============================================================
+Testing UMAP + k-NN with k=3...
+UMAP k=3: Accuracy = 0.7960, Time = 2.37s
+Testing UMAP + k-NN with k=5...
+UMAP k=5: Accuracy = 0.8055, Time = 2.35s
+Testing UMAP + k-NN with k=7...
+UMAP k=7: Accuracy = 0.8131, Time = 2.37s
+Testing UMAP + k-NN with k=10...
+UMAP k=10: Accuracy = 0.8119, Time = 2.36s
+Testing UMAP + k-NN with k=15...
+UMAP k=15: Accuracy = 0.8114, Time = 2.46s
+
+============================================================
+RESULTS COMPARISON: UMAP vs AUTOENCODER
+============================================================
+Best Autoencoder: k=10, Accuracy=0.8559
+Best UMAP: k=7, Accuracy=0.8131
+
+Autoencoder Classification Report (k=10):
+              precision    recall  f1-score   support
+
+ T-shirt/top       0.77      0.86      0.81      1000
+     Trouser       0.98      0.96      0.97      1000
+    Pullover       0.77      0.77      0.77      1000
+       Dress       0.86      0.87      0.87      1000
+        Coat       0.77      0.77      0.77      1000
+      Sandal       0.96      0.92      0.94      1000
+       Shirt       0.66      0.58      0.61      1000
+     Sneaker       0.90      0.95      0.92      1000
+         Bag       0.96      0.95      0.96      1000
+  Ankle boot       0.93      0.94      0.94      1000
+
+    accuracy                           0.86     10000
+   macro avg       0.86      0.86      0.85     10000
+weighted avg       0.86      0.86      0.85     10000
+
+
+UMAP Classification Report (k=7):
+              precision    recall  f1-score   support
+
+ T-shirt/top       0.74      0.80      0.77      1000
+     Trouser       0.99      0.94      0.97      1000
+    Pullover       0.69      0.73      0.71      1000
+       Dress       0.83      0.85      0.84      1000
+        Coat       0.68      0.69      0.69      1000
+      Sandal       0.94      0.84      0.89      1000
+       Shirt       0.55      0.50      0.52      1000
+     Sneaker       0.86      0.92      0.89      1000
+         Bag       0.97      0.91      0.93      1000
+  Ankle boot       0.90      0.94      0.92      1000
+
+    accuracy                           0.81     10000
+   macro avg       0.81      0.81      0.81     10000
+weighted avg       0.81      0.81      0.81     10000
+
+
+============================================================
+EMBEDDING QUALITY ANALYSIS
+============================================================
+Neighborhood Preservation (k=10):
+  Autoencoder: 0.5473
+  UMAP: 0.4651
+
+============================================================
+FINAL ANALYSIS SUMMARY
+============================================================
+
+DIMENSIONALITY REDUCTION COMPARISON:
+┌─────────────────────────────────────────────────────────────────────────┐
+│                        AUTOENCODER         UMAP                         │
+├─────────────────────────────────────────────────────────────────────────┤
+│ Method:                Neural Network      Manifold Learning            │
+│ Approach:              Reconstruction      Topological                  │
+│ Preprocessing Time:    238.9s                369.5s                    │
+│ Embedding Dimension:   200                  200                      │
+│ Best k:                10                   7                       │
+│ Best Accuracy:         0.8559              0.8131                │
+│ k-NN Time (best k):    2.37s               2.37s                 │
+│ Neighborhood Preserv:  0.5473              0.4651                │
+│ Reconstruction Error:  0.606906          N/A                      │
+└─────────────────────────────────────────────────────────────────────────┘
+
+KEY DIFFERENCES:
+• AUTOENCODER: Learns to reconstruct input data through compression
+  - Pros: Deterministic, good reconstruction, handles noise well
+  - Cons: Requires training, may not preserve local structure optimally
+
+• UMAP: Preserves local and global topological structure
+  - Pros: Excellent structure preservation, fast inference, parameter control
+  - Cons: Non-deterministic, no reconstruction capability
+
+PERFORMANCE INSIGHTS:
+• UMAP typically better preserves neighborhood relationships
+• Autoencoder provides reconstruction capability for anomaly detection
+• Both achieve significant dimensionality reduction with good k-NN performance
+• UMAP often faster for inference after initial fitting
+• Choice depends on whether you need reconstruction vs. structure preservation
+
+RECOMMENDATIONS:
+• Use UMAP for: Visualization, clustering, structure-preserving embeddings
+• Use Autoencoder for: Anomaly detection, denoising, when reconstruction needed
+
+
+Analysis Complete! Both methods show competitive performance with different strengths.
+
+Process finished with exit code 0
